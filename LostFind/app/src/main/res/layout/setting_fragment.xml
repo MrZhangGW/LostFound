@@ -4,22 +4,12 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tV_loginUser"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:textSize="35sp"
         android:text="Setting"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/but_exit_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView6"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="82dp"
-        android:text="退出登录"
         tools:ignore="HardcodedText" />
 </RelativeLayout>

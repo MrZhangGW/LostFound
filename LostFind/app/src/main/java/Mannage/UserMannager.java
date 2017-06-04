@@ -1,4 +1,4 @@
-package com.mrzhang.lostfind.Mannage;
+package Mannage;
 
 /**
  * Created by Administrator on 2017/6/3.

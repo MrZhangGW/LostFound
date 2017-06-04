@@ -1,6 +1,7 @@
-package com.mrzhang.lostfind.bean;
+package bean;
 
 
+import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.BmobUser;
 
 /**

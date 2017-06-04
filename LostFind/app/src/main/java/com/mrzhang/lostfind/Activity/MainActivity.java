@@ -11,8 +11,7 @@ import android.widget.Toast;
 
 import com.mrzhang.lostfind.R;
 
-import com.mrzhang.lostfind.bean.UserBean;
-import cn.bmob.v3.BmobUser;
+import bean.UserBean;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
@@ -22,7 +21,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button but_login,but_regist;
     UserBean userBean=null;
     Intent intent;
-    boolean isAutoLogin=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,22 +37,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edit_psw=(EditText)findViewById(R.id.edit_psw);
         but_login.setOnClickListener(this);
         but_regist.setOnClickListener(this);
-        userBean = BmobUser.getCurrentUser(UserBean.class);
-        intent=getIntent();
-        isAutoLogin=intent.getBooleanExtra("NotAutoLogin",true);
-        if(userBean!=null&&isAutoLogin){
-            edit_username.setText(userBean.getUsername());
-            intent =new Intent();
-            intent.setClass(MainActivity.this,HomeActivity.class);
-            startActivity(intent);
-            finish();
-        }
     }
 
 
     @Override
     public void onClick(View v) {
-
+        System.out.println("--->>start onClickFound");
         switch (v.getId()){
             case R.id.but_login:
                 userBean = new UserBean();
@@ -68,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             intent.setClass(MainActivity.this,HomeActivity.class);
                             intent.putExtra("username",userBean.getUsername());
                             startActivity(intent);
-                            finish();
                         }else {
 
                             Toast.makeText(MainActivity.this,"登录失败，请检查用户名和密码后重新登陆"
@@ -81,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent =new Intent();
                 intent.setClass(MainActivity.this,RegistActivity.class);
                 startActivity(intent);
-                finish();
                 break;
 
         }

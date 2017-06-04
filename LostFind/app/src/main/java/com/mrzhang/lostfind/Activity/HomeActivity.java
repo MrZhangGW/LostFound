@@ -6,7 +6,6 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
@@ -26,7 +25,7 @@ import java.util.List;
  * Created by Administrator on 2017/6/3.
  */
 
-public class HomeActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener{
+public class HomeActivity extends Activity implements BottomNavigationBar.OnTabSelectedListener{
     BottomNavigationBar bottomNavigationBar;
     HomeFragment homeFragment;
     FriendsFragment friendsFragment;
@@ -45,7 +44,6 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationB
 
                 .initialise();
         bottomNavigationBar.setTabSelectedListener(this);
-        setDefaultFragment();
     }
     public void initView(){
         bottomNavigationBar=(BottomNavigationBar)findViewById(R.id.home_navigation_bar);
