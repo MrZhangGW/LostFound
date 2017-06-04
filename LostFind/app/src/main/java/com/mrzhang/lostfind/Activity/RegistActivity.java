@@ -1,8 +1,8 @@
 package com.mrzhang.lostfind.Activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.mrzhang.lostfind.R;
 
-import bean.UserBean;
+import com.mrzhang.lostfind.bean.UserBean;
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
@@ -19,7 +19,7 @@ import cn.bmob.v3.listener.SaveListener;
  * Created by Administrator on 2017/6/3.
  */
 
-public class RegistActivity extends Activity implements View.OnClickListener {
+public class RegistActivity extends AppCompatActivity implements View.OnClickListener {
     EditText edit_username,edit_psw,edit_email;
     Button   but_regist;
     UserBean userBean_reg;
@@ -68,9 +68,10 @@ public class RegistActivity extends Activity implements View.OnClickListener {
                 if(e==null){
                     Toast.makeText(RegistActivity.this,"注册成功:"
                             +userBean.getUsername().toString(),Toast.LENGTH_LONG).show();
-                    RegistActivity.this.finish();
+                    finish();
                 }else{
-                    Toast.makeText(RegistActivity.this,"注册失败:用户已存在!" ,Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegistActivity.this,"注册失败:用户已存在!"
+                            ,Toast.LENGTH_LONG).show();
                 }
             }
         });
