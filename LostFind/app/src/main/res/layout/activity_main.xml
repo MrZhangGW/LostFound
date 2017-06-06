@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,7 +15,8 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="306dp"
         tools:ignore="MissingConstraints"
-        android:layout_marginBottom="55dp"
+        android:layout_marginBottom="33dp"
+        android:background="@drawable/sign_button"
         android:layout_above="@+id/but_regist"
         android:layout_centerHorizontal="true" />
 
@@ -26,9 +28,10 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="377dp"
         tools:ignore="HardcodedText,MissingConstraints"
+        android:background="@drawable/sign_button"
+        android:layout_marginBottom="35dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/but_login"
-        android:layout_marginBottom="22dp" />
+        android:layout_alignStart="@+id/but_login" />
 
     <TextView
         android:id="@+id/textView4"
@@ -39,23 +42,23 @@
         tools:layout_editor_absoluteX="39dp"
         tools:layout_editor_absoluteY="60dp"
         tools:ignore="HardcodedText,MissingConstraints"
-        android:layout_alignBaseline="@+id/edit_username"
-        android:layout_alignBottom="@+id/edit_username"
-        android:layout_alignStart="@+id/textView5" />
+        android:layout_above="@+id/edit_psw"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_marginBottom="45dp" />
 
     <EditText
         android:id="@+id/edit_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="83dp"
-        android:layout_toEndOf="@+id/textView4"
+        android:layout_marginStart="15dp"
         android:ems="10"
         android:inputType="textPersonName"
         tools:ignore="HardcodedText,LabelFor,MissingConstraints"
         tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="52dp" />
+        tools:layout_editor_absoluteY="52dp"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView5"
@@ -66,10 +69,10 @@
         tools:layout_editor_absoluteX="39dp"
         tools:layout_editor_absoluteY="150dp"
         tools:ignore="HardcodedText,MissingConstraints"
-        android:layout_marginStart="23dp"
-        android:layout_alignBaseline="@+id/edit_psw"
-        android:layout_alignBottom="@+id/edit_psw"
-        android:layout_alignStart="@+id/but_login" />
+        android:layout_marginStart="26dp"
+        android:layout_above="@+id/but_login"
+        android:layout_alignStart="@+id/but_login"
+        android:layout_marginBottom="34dp" />
 
     <EditText
         android:id="@+id/edit_psw"
@@ -80,7 +83,18 @@
         tools:ignore="LabelFor,MissingConstraints"
         tools:layout_editor_absoluteX="144dp"
         tools:layout_editor_absoluteY="141dp"
-        android:layout_marginTop="46dp"
-        android:layout_below="@+id/edit_username"
+        android:layout_alignBaseline="@+id/textView5"
+        android:layout_alignBottom="@+id/textView5"
         android:layout_alignStart="@+id/edit_username" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="78dp"
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:ignore="ContentDescription" />
+
 </RelativeLayout>
