@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="friends"
-        android:textSize="35sp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        tools:ignore="HardcodedText" />
+    android:layout_width="match_parent"
+    android:background="@color/skyblue"
+    android:layout_height="match_parent">
+    <ExpandableListView
+        android:id="@+id/expandableListView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp" >
+
+    </ExpandableListView>
+
 </RelativeLayout>

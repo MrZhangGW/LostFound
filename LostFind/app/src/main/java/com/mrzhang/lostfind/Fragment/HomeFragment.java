@@ -53,19 +53,19 @@ public class HomeFragment extends Fragment {
         datas=new ArrayList<>();
         LostMessage lostMessage=new LostMessage();
         lostMessage.setLost_username("易大师");
-        lostMessage.setLost_date("2017/5/21");
-        lostMessage.setLost_context("无极之道在我的内心延续~~~");
+        lostMessage.setLost_date("2017/5/23");
+        lostMessage.setLost_context("我的剑丢了~~——我的剑就是你的剑！");
         System.out.println("-->>日期"+lostMessage.getLost_date());
         datas.add(lostMessage);
         lostMessage=new LostMessage();
-        lostMessage.setLost_username("易大师");
+        lostMessage.setLost_username("蛮三刀");
         lostMessage.setLost_date("2017/5/22");
-        lostMessage.setLost_context("无极之道在我的内心延续~~~");
+        lostMessage.setLost_context("我的大刀丢了~~——我的光辉时刻就是开大刀的时刻！");
         datas.add(lostMessage);
         lostMessage=new LostMessage();
-        lostMessage.setLost_username("易大师");
-        lostMessage.setLost_date("2017/5/23");
-        lostMessage.setLost_context("无极之道在我的内心延续~~~");
+        lostMessage.setLost_username("菊花信");
+        lostMessage.setLost_date("2017/5/21");
+        lostMessage.setLost_context("我的长枪丢了~~——一点寒芒先到，随后枪出如龙！");
         datas.add(lostMessage);
         for(int i=0;i<datas.size();i++){
             System.out.println("--->>"+datas.get(i).getLost_date());

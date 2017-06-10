@@ -3,13 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray">
+    android:background="@color/dodgerblue">
+
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/home_recycler_view"
-        android:scrollbars="horizontal">
+        android:scrollbars="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true">
 
     </android.support.v7.widget.RecyclerView>
 

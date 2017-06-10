@@ -1,25 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:background="@color/lightskyblue"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+        <com.thinkcool.circletextimageview.CircleTextImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/head_image"
+            android:layout_width="0dp"
+            android:layout_height="96dp"
+            android:src="@mipmap/item_headimg"
+            app:citv_border_width="2dp"
+            app:citv_border_color="#FF000000"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            tools:ignore="NestedWeights,ObsoleteLayoutParam" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tV_loginUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:textSize="35sp"
         android:text="Setting"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignStart="@+id/but_exit_login" />
 
     <Button
         android:id="@+id/but_exit_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView6"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="82dp"
         android:text="退出登录"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+
+        android:layout_below="@+id/tV_loginUser"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

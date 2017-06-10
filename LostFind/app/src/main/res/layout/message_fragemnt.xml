@@ -2,15 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Message"
-        android:textSize="35sp"
+    android:layout_height="match_parent"
+    android:background="@color/springgreen">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/message_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        tools:ignore="HardcodedText" />
+    </android.support.v7.widget.RecyclerView>
 </RelativeLayout>

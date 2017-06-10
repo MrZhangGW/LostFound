@@ -4,41 +4,40 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mrzhang.lostfind.R;
+import com.mrzhang.lostfind.bean.FindMessage;
+
+import com.thinkcool.circletextimageview.CircleTextImageView;
 
 import java.util.ArrayList;
 
-import com.mrzhang.lostfind.bean.LostMessage;
-import com.thinkcool.circletextimageview.CircleTextImageView;
-
 /**
- * Created by Administrator on 2017/6/4.
+ * Created by Administrator on 2017/6/8.
  */
 
-public class Home_Re_Adapter extends RecyclerView.Adapter<Home_Re_Adapter.ViewHolder> {
-    public ArrayList<LostMessage> datas;
-    public Home_Re_Adapter(ArrayList<LostMessage> datas){
+public class Message_Re_Adapter extends RecyclerView.Adapter<Message_Re_Adapter.ViewHolder> {
+    public ArrayList<FindMessage> datas;
+    public Message_Re_Adapter(ArrayList<FindMessage> datas){
         this.datas=datas;
     }
     @Override
-    public Home_Re_Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public Message_Re_Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_re_item,
-        parent,false);
-        ViewHolder viewHolder =new ViewHolder(view);
+                parent,false);
+        Message_Re_Adapter.ViewHolder viewHolder =new Message_Re_Adapter.ViewHolder(view);
         return viewHolder;
     }
 
-    @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+
+    public void onBindViewHolder(Message_Re_Adapter.ViewHolder holder, int position) {
         holder.h_re_img.setImageResource(R.mipmap.item_img1);
         holder.h_re_headimg.setImageResource(R.mipmap.item_headimg);
-        holder.h_re_username.setText(datas.get(position).getLost_username());
-        holder.h_re_date.setText(datas.get(position).getLost_date());
-        holder.h_re_context.setText(datas.get(position).getLost_context());
+        holder.h_re_username.setText(datas.get(position).getFind_username());
+        holder.h_re_date.setText(datas.get(position).getFind_date());
+        holder.h_re_context.setText(datas.get(position).getFind_context());
     }
 
     @Override
@@ -61,5 +60,4 @@ public class Home_Re_Adapter extends RecyclerView.Adapter<Home_Re_Adapter.ViewHo
             h_re_img=(ImageView) view.findViewById(R.id.h_reg_img);
         }
     }
-
 }

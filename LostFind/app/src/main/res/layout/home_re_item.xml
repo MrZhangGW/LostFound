@@ -11,11 +11,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         tools:ignore="UselessParent">
-        <ImageButton
+        <com.thinkcool.circletextimageview.CircleTextImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:id="@+id/h_reg_headimg"
-            tools:ignore="ContentDescription" />
+            android:src="@mipmap/item_headimg"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"

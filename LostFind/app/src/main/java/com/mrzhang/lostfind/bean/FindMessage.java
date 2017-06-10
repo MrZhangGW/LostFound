@@ -1,10 +1,12 @@
 package com.mrzhang.lostfind.bean;
 
+import cn.bmob.v3.BmobObject;
+
 /**
  * Created by Administrator on 2017/6/4.
  */
 
-public class FoundMessage {
+public class FindMessage extends BmobObject {
     String find_username;
     String find_date;
     String find_context;

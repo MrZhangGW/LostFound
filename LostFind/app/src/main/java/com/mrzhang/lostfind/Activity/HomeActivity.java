@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.mrzhang.lostfind.Fragment.AddFragment;
 import com.mrzhang.lostfind.Fragment.FriendsFragment;
 import com.mrzhang.lostfind.Fragment.HomeFragment;
 import com.mrzhang.lostfind.Fragment.MessageFragment;
@@ -32,19 +33,23 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationB
     FriendsFragment friendsFragment;
     SettingFragment settingFragment;
     MessageFragment messageFragment;
+    AddFragment  addFragment;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_layout);
         initView();
-        bottomNavigationBar
-                .addItem(new BottomNavigationItem(R.mipmap.ic_launcher,"Home"))
-                .addItem(new BottomNavigationItem(R.mipmap.ic_launcher,"Message"))
-                .addItem(new BottomNavigationItem(R.mipmap.ic_launcher,"Friends"))
-                .addItem(new BottomNavigationItem(R.mipmap.ic_launcher,"Setting"))
-
-                .initialise();
         bottomNavigationBar.setTabSelectedListener(this);
+        bottomNavigationBar.setMode(BottomNavigationBar.MODE_SHIFTING);
+        bottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_DEFAULT);
+
+        bottomNavigationBar
+                .addItem(new BottomNavigationItem(R.mipmap.home,"FindMessage").setActiveColor(R.color.dodgerblue))
+                .addItem(new BottomNavigationItem(R.mipmap.messages,"LostMessage").setActiveColor(R.color.springgreen))
+                .addItem(new BottomNavigationItem(R.mipmap.add,"").setActiveColor(R.color.orangered))
+                .addItem(new BottomNavigationItem(R.mipmap.contacts,"Contacts").setActiveColor(R.color.skyblue))
+                .addItem(new BottomNavigationItem(R.mipmap.settings,"Setting").setActiveColor(R.color.lightskyblue))
+                .initialise();
         setDefaultFragment();
     }
     public void initView(){
@@ -77,12 +82,18 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationB
                 transaction.replace(R.id.id_content, messageFragment);
                 break;
             case 2:
+                if (addFragment == null) {
+                    addFragment = new AddFragment();
+                }
+                transaction.replace(R.id.id_content, addFragment);
+                break;
+            case 3:
                 if (friendsFragment == null) {
                     friendsFragment = new FriendsFragment();
                 }
                 transaction.replace(R.id.id_content, friendsFragment);
                 break;
-            case 3:
+            case 4:
                 if (settingFragment == null) {
                     settingFragment = new SettingFragment();
                 }
