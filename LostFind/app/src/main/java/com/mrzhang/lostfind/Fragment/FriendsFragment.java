@@ -41,27 +41,22 @@ public class FriendsFragment extends Fragment {
         groupArray = new  ArrayList<String>();
         childArray = new  ArrayList<List<String>>();
 
-        groupArray.add("第一行" );
-        groupArray.add("第二行" );
-        groupArray.add("第三行" );
+        groupArray.add("LOL" );
+        groupArray.add("Actual" );
+
 
         List<String> tempArray = new  ArrayList<String>();
-        tempArray.add("第一条" );
-        tempArray.add("第二条" );
-        tempArray.add("第三条" );
-        tempArray.add("第三条" );
-        tempArray.add("第三条" );
-        tempArray.add("第三条" );
-        tempArray.add("第三条" );
-        tempArray.add("第三条" );
-        tempArray.add("第三条" );
-        tempArray.add("第三条" );
+        tempArray.add("易大师" );
+        tempArray.add("菊花信" );
+        tempArray.add("蛮三刀" );
+        tempArray.add("艾瑞莉娅" );
+
         childArray.add(tempArray);
 
          tempArray = new  ArrayList<String>();
-        tempArray.add("第一条" );
-        tempArray.add("第二条" );
-        tempArray.add("第三条" );
+        tempArray.add("admin" );
+        tempArray.add("Mrzhang" );
+        tempArray.add("Mrzhanggw" );
         childArray.add(tempArray);
     }
 }

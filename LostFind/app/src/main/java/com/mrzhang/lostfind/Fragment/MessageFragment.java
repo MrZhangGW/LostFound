@@ -1,6 +1,7 @@
 package com.mrzhang.lostfind.Fragment;
 
 import android.os.Bundle;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,6 +17,7 @@ import com.mrzhang.lostfind.bean.FindMessage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Handler;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
@@ -50,10 +52,24 @@ public class MessageFragment extends Fragment {
         System.out.println("--->>为recylerView设置Layout");
 //        recycler.addItemDecoration();
 //        recycler.setHasFixedSize(false);
-        message_re_adapter = new Message_Re_Adapter(getdatas());
-        System.out.println("--->>初始化homeReAdapter，得到数据");
-        recycler.setAdapter(message_re_adapter);
-        System.out.println("--->>设置homeReAdapter");
+        datas=getdatas();
+        Bmob.initialize(getActivity(), "19defc682eb8904705353b5ae183ccaf");
+        BmobQuery<FindMessage> bmobQuery= new BmobQuery<FindMessage>();
+        bmobQuery.findObjects(new FindListener<FindMessage>() {
+            @Override
+            public void done(List<FindMessage> list, BmobException e) {
+                if (e==null){
+                    list.addAll(datas);
+                    message_re_adapter = new Message_Re_Adapter(list);
+                    System.out.println("--->>初始化homeReAdapter，得到数据");
+                    recycler.setAdapter(message_re_adapter);
+                    System.out.println("--->>设置homeReAdapter");
+                }else{
+                    System.out.println("--->>查询找寻失主信息失败"+e.getMessage());
+                }
+            }
+        });
+
         return view;
     }
 
@@ -76,23 +92,6 @@ public class MessageFragment extends Fragment {
         findMessage.setFind_date("2017/5/23");
         findMessage.setFind_context("我捡到了长枪，菊花信3分39秒来红Buff处领取~~~");
         datas.add(findMessage);
-        Bmob.initialize(getActivity(), "19defc682eb8904705353b5ae183ccaf");
-        BmobQuery<FindMessage> bmobQuery= new BmobQuery<FindMessage>();
-        bmobQuery.findObjects(new FindListener<FindMessage>() {
-            @Override
-            public void done(List<FindMessage> list, BmobException e) {
-                if (e==null){
-                    for(FindMessage findMessage:list){
-                        datas.add(findMessage);
-                        System.out.println("--->>查询找寻失主信息成功");
-                    }
-                }else{
-                    System.out.println("--->>查询找寻失主信息失败"+e.getMessage());
-                }
-            }
-        });
-
-
 
         for (int i = 0; i < datas.size(); i++) {
             System.out.println("--->>" + datas.get(i).getFind_date());

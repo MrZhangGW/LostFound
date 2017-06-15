@@ -49,13 +49,7 @@ public class RegistActivity extends AppCompatActivity implements View.OnClickLis
                 userBean_reg.setUsername(edit_username.getText().toString().trim());
                 userBean_reg.setEmail(edit_email.getText().toString().trim());
                 userBean_reg.setPassword(edit_psw.getText().toString().trim());
-                try{
                 setBut_regist(userBean_reg);
-                }catch (Exception e){
-                    Toast.makeText(RegistActivity.this,"当前用户已存在 " ,Toast.LENGTH_LONG).show();
-
-                }
-
                 break;
         }
     }

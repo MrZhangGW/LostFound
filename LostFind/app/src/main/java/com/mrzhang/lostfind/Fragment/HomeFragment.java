@@ -3,18 +3,28 @@ package com.mrzhang.lostfind.Fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.mrzhang.lostfind.Adapter.Home_Re_Adapter;
+import com.mrzhang.lostfind.Adapter.Message_Re_Adapter;
 import com.mrzhang.lostfind.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import com.mrzhang.lostfind.bean.FindMessage;
 import com.mrzhang.lostfind.bean.LostMessage;
+
+import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 
 /**
  * Created by Administrator on 2017/6/3.
@@ -37,16 +47,33 @@ public class HomeFragment extends Fragment {
         System.out.println("--->>得到View");
         recycler=(RecyclerView)view.findViewById(R.id.home_recycler_view);
         System.out.println("--->>得到recycleView");
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(view.getContext());
+//        GridLayoutManager linearLayoutManager=new GridLayoutManager(view.getContext(),2);
+        StaggeredGridLayoutManager linearLayoutManager=new StaggeredGridLayoutManager(2
+                , StaggeredGridLayoutManager.VERTICAL);
         System.out.println("--->>得到linearLayoutManager");
         recycler.setLayoutManager(linearLayoutManager);
         System.out.println("--->>为recylerView设置Layout");
 //        recycler.addItemDecoration();
 //        recycler.setHasFixedSize(false);
-        homeReAdapter = new Home_Re_Adapter(getdatas());
-        System.out.println("--->>初始化homeReAdapter，得到数据");
-        recycler.setAdapter(homeReAdapter);
-        System.out.println("--->>设置homeReAdapter");
+        datas=getdatas();
+        Bmob.initialize(getActivity(), "19defc682eb8904705353b5ae183ccaf");
+        BmobQuery<LostMessage> bmobQuery= new BmobQuery<LostMessage>();
+        bmobQuery.findObjects(new FindListener<LostMessage>() {
+            @Override
+            public void done(List<LostMessage> list, BmobException e) {
+                if (e==null){
+                    list.addAll(datas);
+                    homeReAdapter = new Home_Re_Adapter(list);
+                    System.out.println("--->>初始化homeReAdapter，得到数据");
+                    recycler.setAdapter(homeReAdapter);
+                    System.out.println("--->>设置homeReAdapter");
+
+                }else{
+                    System.out.println("--->>查询找寻失主信息失败"+e.getMessage());
+                }
+            }
+        });
+
         return view;
     }
     public ArrayList<LostMessage> getdatas(){

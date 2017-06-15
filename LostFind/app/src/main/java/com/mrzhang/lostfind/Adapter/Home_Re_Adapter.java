@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.mrzhang.lostfind.R;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.mrzhang.lostfind.bean.LostMessage;
 import com.thinkcool.circletextimageview.CircleTextImageView;
@@ -20,8 +20,8 @@ import com.thinkcool.circletextimageview.CircleTextImageView;
  */
 
 public class Home_Re_Adapter extends RecyclerView.Adapter<Home_Re_Adapter.ViewHolder> {
-    public ArrayList<LostMessage> datas;
-    public Home_Re_Adapter(ArrayList<LostMessage> datas){
+    public List<LostMessage> datas;
+    public Home_Re_Adapter(List<LostMessage> datas){
         this.datas=datas;
     }
     @Override
@@ -34,6 +34,13 @@ public class Home_Re_Adapter extends RecyclerView.Adapter<Home_Re_Adapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        ViewGroup.LayoutParams params =  holder.itemView.getLayoutParams();//得到item的LayoutParams布局参数
+
+        params.height = (int)(350+Math.random()*400) ;//把随机的高度赋予itemView布局
+
+        holder.itemView.setLayoutParams(params);//把params设置给itemView布局
+
+
         holder.h_re_img.setImageResource(R.mipmap.item_img1);
         holder.h_re_headimg.setImageResource(R.mipmap.item_headimg);
         holder.h_re_username.setText(datas.get(position).getLost_username());

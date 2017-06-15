@@ -12,15 +12,15 @@ import com.mrzhang.lostfind.bean.FindMessage;
 
 import com.thinkcool.circletextimageview.CircleTextImageView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/6/8.
  */
 
 public class Message_Re_Adapter extends RecyclerView.Adapter<Message_Re_Adapter.ViewHolder> {
-    public ArrayList<FindMessage> datas;
-    public Message_Re_Adapter(ArrayList<FindMessage> datas){
+    public List<FindMessage> datas;
+    public Message_Re_Adapter(List<FindMessage> datas){
         this.datas=datas;
     }
     @Override

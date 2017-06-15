@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent =new Intent();
                 intent.setClass(MainActivity.this,RegistActivity.class);
                 startActivity(intent);
-                finish();
+
                 break;
 
         }
